@@ -1,0 +1,32 @@
+{
+    "name": "virhi/ui-rest-api_doctrine-bundle",
+    "description": "generate a UI on top of Rest Hal APi",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vincent Rhino",
+            "email": "vincent.rhino@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "Virhi\\UiRestApiDoctrineBundle": "src/"
+        }
+    },
+    "require": {
+        "virhi/RestHalBundle": "@dev",
+        "virhi/component": "@dev"
+    },
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/virhi/RestHalBundle.git"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/virhi/Component.git"
+        }
+    ]
+}

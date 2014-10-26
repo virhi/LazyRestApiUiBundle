@@ -1,0 +1,29 @@
+parameters:
+    virhi_ui_rest_api_doctrine.service.loader.class: Virhi\UiRestApiDoctrineBundle\UI\Service\HttpClient
+    virhi_ui_rest_api_doctrine.service.menu.class: Virhi\UiRestApiDoctrineBundle\UI\Service\MenuService
+    virhi_ui_rest_api_doctrine.service.object_structure.class: Virhi\UiRestApiDoctrineBundle\UI\Service\ObjectStructureService
+    virhi_ui_rest_api_doctrine.service.entity.class: Virhi\UiRestApiDoctrineBundle\UI\Service\EntityService
+
+services:
+
+    virhi_ui_rest_api_doctrine.guzzle_client:
+        class: %guzzle.client.class%
+        arguments: ['http://local.sf.dev/']
+        tags:
+            -  { name: guzzle.client }
+
+    virhi_ui_rest_api_doctrine.service.menu:
+        class: %virhi_ui_rest_api_doctrine.service.menu.class%
+        arguments: [@virhi_ui_rest_api_doctrine.service.object_structure]
+
+    virhi_ui_rest_api_doctrine.service.object_structure:
+        class: %virhi_ui_rest_api_doctrine.service.object_structure.class%
+        arguments: [@virhi_ui_rest_api_doctrine.service.loader]
+
+    virhi_ui_rest_api_doctrine.service.loader:
+        class: %virhi_ui_rest_api_doctrine.service.loader.class%
+        arguments: [@virhi_ui_rest_api_doctrine.guzzle_client]
+
+    virhi_ui_rest_api_doctrine.service.entity:
+        class: %virhi_ui_rest_api_doctrine.service.entity.class%
+        arguments: [@virhi_ui_rest_api_doctrine.service.loader, @virhi_ui_rest_api_doctrine.service.object_structure]

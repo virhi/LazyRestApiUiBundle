@@ -1,0 +1,5 @@
+{% if field.type == 'text' and field.size is defined and field.size > 255%}
+    {% include "fields/fieldTextArea.twig" %}
+{% else %}
+    {% include "fields/fieldText.twig" %}
+{% endif %}

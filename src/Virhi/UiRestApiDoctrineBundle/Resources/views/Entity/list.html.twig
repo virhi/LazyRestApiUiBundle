@@ -1,0 +1,6 @@
+{% extends "VirhiUiRestApiDoctrineBundle::layout.html.twig" %}
+{% block content %}
+    {% for entity in list %}
+        {% include  "VirhiUiRestApiDoctrineBundle:Include:object.html.twig"%}
+    {% endfor %}
+{% endblock %}

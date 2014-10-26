@@ -1,0 +1,7 @@
+virhi_ui_rest_api_doctrine_homepage:
+    path:     /ui
+    defaults: { _controller: VirhiUiRestApiDoctrineBundle:Default:index }
+
+virhi_ui_rest_api_doctrine_entity_list:
+    path:     /ui/entity/{name}
+    defaults: { _controller: VirhiUiRestApiDoctrineBundle:Entity:list}
