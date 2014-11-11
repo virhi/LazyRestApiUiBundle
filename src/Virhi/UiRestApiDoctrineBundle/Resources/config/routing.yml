@@ -2,6 +2,16 @@ virhi_ui_rest_api_doctrine_homepage:
     path:     /ui
     defaults: { _controller: VirhiUiRestApiDoctrineBundle:Default:index }
 
+
+virhi_ui_rest_api_doctrine_entity_item:
+    path:     /ui/entity/{name}/{id}
+    defaults: { _controller: VirhiUiRestApiDoctrineBundle:Entity:entity}
+
+virhi_ui_rest_api_doctrine_entity_edit:
+    path:     /ui/edit/{name}/{id}
+    defaults: { _controller: VirhiUiRestApiDoctrineBundle:Entity:edit}
+
 virhi_ui_rest_api_doctrine_entity_list:
-    path:     /ui/entity/{name}
+    path:     /ui/entitys/{name}
     defaults: { _controller: VirhiUiRestApiDoctrineBundle:Entity:list}
+

@@ -9,8 +9,8 @@
 namespace Virhi\UiRestApiDoctrineBundle\UI\Service;
 
 use Virhi\UiRestApiDoctrineBundle\UI\Filter\ListEntityFilter;
+use Virhi\UiRestApiDoctrineBundle\UI\Filter\EntityFilter;
 use Virhi\UiRestApiDoctrineBundle\UI\Factory\EntityFactory;
-use Virhi\UiRestApiDoctrineBundle\UI\Factory\ObjectStructureFactory;
 
 class EntityService 
 {
@@ -30,6 +30,10 @@ class EntityService
         $this->objectStructureService = $objectStructureService;
     }
 
+    /**
+     * @param ListEntityFilter $filter
+     * @return \ArrayObject
+     */
     public function getList(ListEntityFilter $filter)
     {
         $res = $this->httpClient->load('http://local.sf.dev/api/entitys/' . $filter->getEntityName());
@@ -42,5 +46,16 @@ class EntityService
         }
 
         return $list;
+    }
+
+    /**
+     * @param EntityFilter $filter
+     * @return \Virhi\UiRestApiDoctrineBundle\UI\ValueObject\Entity
+     */
+    public function getEntity(EntityFilter $filter)
+    {
+        $res = $this->httpClient->load('http://local.sf.dev/api/entity/' . $filter->getEntityName() . '/' .$filter->getId() );
+        $objStruc = $this->objectStructureService->getObjectStructure($filter->getEntityName());
+        return EntityFactory::build($objStruc, $res);
     }
 } 

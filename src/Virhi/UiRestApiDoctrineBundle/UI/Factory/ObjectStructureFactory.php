@@ -19,8 +19,11 @@ class ObjectStructureFactory
      */
     static public function build($rawObjectStructure)
     {
-        $objectStructure = new ObjectStructure($rawObjectStructure['name']);
-        foreach($rawObjectStructure['_embedded']['collumns'] as $collumns) {
+        $namespace       = explode('\\', $rawObjectStructure['name']);
+        $nbName          = count($namespace) - 1;
+        $objectStructure = new ObjectStructure($namespace[$nbName], $rawObjectStructure['identifier']);
+
+        foreach($rawObjectStructure['fields'] as $collumns) {
             $field = new Fields($collumns['name'], $collumns['name']);
             $field->setLength($collumns['length']);
             $field->setNullable($collumns['notnull']);

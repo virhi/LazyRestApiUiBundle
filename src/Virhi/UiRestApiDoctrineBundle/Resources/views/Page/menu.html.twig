@@ -16,7 +16,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 {% for item in menu.items %}
-                    <li class=""><a href="{{ path('virhi_ui_rest_api_doctrine_entity_list', {'name': item.label}) }}">{{ item.label }}</a></li>
+                    <li class=""><a href="{{ path('virhi_ui_rest_api_doctrine_entity_list', {'name': item.label}) }}">{{ item.value }}</a></li>
                 {% endfor %}
             </ul>
             <form class="navbar-form navbar-right" role="search">

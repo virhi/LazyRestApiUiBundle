@@ -13,18 +13,35 @@ class Entity
 {
     protected $name;
 
+    protected $id;
+
     protected $fields;
 
-    function __construct($name)
+    function __construct($name, $id)
     {
         $this->fields = new \ArrayObject();
         $this->name = $name;
+        $this->id = $id;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
 
     public function addFields($fields)
     {
-        $this->fields->append($fields);
+        $this->fields->offsetSet($fields->getName(), $fields);
         return $this;
+    }
+
+    public function getFieldByName($name)
+    {
+        return $this->fields->offsetGet($name);
     }
 
     /**
@@ -42,7 +59,5 @@ class Entity
     {
         return $this->name;
     }
-
-
 
 } 

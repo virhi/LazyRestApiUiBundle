@@ -1,0 +1,5 @@
+{% if field.type == 'text' or (field.type == 'string' and field.length is defined and field.length > 255) %}
+    {% include  "VirhiUiRestApiDoctrineBundle:fields:fieldTextArea.html.twig"%}
+{% else %}
+    {% include  "VirhiUiRestApiDoctrineBundle:fields:fieldText.html.twig"%}
+{% endif %}

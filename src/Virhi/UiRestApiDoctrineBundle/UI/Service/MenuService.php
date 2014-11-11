@@ -30,7 +30,7 @@ class MenuService
         $menu = new ValueObject\Menu();
 
         foreach ($listObjectStructure as $objectStructure) {
-            $menuItem = new ValueObject\MenuItem($objectStructure->getName(), $objectStructure->getName());
+            $menuItem = new ValueObject\MenuItem($objectStructure->getName(), $objectStructure->getLabel());
             $menu->addItem($menuItem);
         }
 
