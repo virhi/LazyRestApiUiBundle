@@ -16,6 +16,6 @@ class PageController extends Controller
     {
         $svc  = $this->get('virhi_ui_rest_api_doctrine.service.menu');
         $menu = $svc->getMenu();
-        return $this->render('VirhiUiRestApiDoctrineBundle:Page:menu.html.twig', array('menu' => $menu));
+        return $this->render('VirhiUiRestApiDoctrineBundle:Menu:left_menu.html.twig', array('menu' => $menu));
     }
 } 

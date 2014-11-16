@@ -1,0 +1,7 @@
+<div class="btn-group-lg">
+    {% for item in menu.items %}
+        <a class="btn btn-primary btn-lg btn-block" href="{{ path('virhi_ui_rest_api_doctrine_entity_list', {'name': item.label}) }}">
+            <span class="glyphicon glyphicon-list"></span> {{ item.value }}
+        </a>
+    {% endfor %}
+</div>
