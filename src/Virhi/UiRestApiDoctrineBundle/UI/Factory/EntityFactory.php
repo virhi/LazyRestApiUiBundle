@@ -11,12 +11,15 @@ namespace Virhi\UiRestApiDoctrineBundle\UI\Factory;
 use Virhi\UiRestApiDoctrineBundle\UI\ValueObject\ObjectStructure;
 use Virhi\UiRestApiDoctrineBundle\UI\ValueObject\Entity;
 use Virhi\UiRestApiDoctrineBundle\UI\ValueObject\Fields;
+use Virhi\UiRestApiDoctrineBundle\UI\ValueObject\EmbedField;
+use Virhi\UiRestApiDoctrineBundle\UI\ValueObject\EmbedEntity;
 
 class EntityFactory 
 {
     static public function build(ObjectStructure $objectStructure, $rowEntity)
     {
         $fields = array();
+        $embedFields = array();
         $id     = array();
 
         foreach ($rowEntity['fields'] as $rawField) {
@@ -35,12 +38,23 @@ class EntityFactory
 
         }
 
-        $entity = new Entity($objectStructure->getName(), implode('_', $id));
+        /*
+        foreach ($rowEntity['embeds'] as $embedName => $embeds) {
 
-        foreach ($fields as $field) {
-            $entity->addFields($field);
-        }
+            $embedEntities = array();
 
+            foreach ($embeds as $embedFields) {
+                foreach ($embedFields['value'] as $rawEmbedEntity) {
+                    $embedEntity = new EmbedEntity($embedFields['identifier'], $embedFields['name'], $rawEmbedEntity['name']);
+                    $embedEntities[$embedName] = $embedEntity;
+                }
+            }
+
+            $embedField = new EmbedField($embedName, $embedName, $embedEntities);
+            $embedFields[] = $embedField;
+        }*/
+
+        $entity = new Entity($objectStructure->getName(), implode('_', $id), $fields, $embedFields);
         return $entity;
     }
 } 

@@ -17,11 +17,18 @@ class Entity
 
     protected $fields;
 
-    function __construct($name, $id)
+    protected $embedFields;
+
+    function __construct($name, $id, array $fields = array(), array $embedFields = array())
     {
-        $this->fields = new \ArrayObject();
         $this->name = $name;
         $this->id = $id;
+
+        $this->fields = new \ArrayObject();
+        $this->embedFields = new \ArrayObject();
+
+        $this->addFields($fields);
+        $this->addEmbedField($embedFields);
     }
 
     /**
@@ -32,10 +39,11 @@ class Entity
         return $this->id;
     }
 
-
-    public function addFields($fields)
+    private function addFields($fields)
     {
-        $this->fields->offsetSet($fields->getName(), $fields);
+        foreach ($fields as $field) {
+            $this->fields->offsetSet($field->getName(), $field);
+        }
         return $this;
     }
 
@@ -60,4 +68,19 @@ class Entity
         return $this->name;
     }
 
-} 
+    /**
+     * @return \ArrayObject
+     */
+    public function getEmbedFields()
+    {
+        return $this->embedFields;
+    }
+
+    private function addEmbedField($fields)
+    {
+        foreach ($fields as $field) {
+            $this->embedFields->offsetSet($field->getName(), $field);
+        }
+        return $this;
+    }
+}
