@@ -1,3 +1,4 @@
+{% set viewMode = ['view', 'list'] %}
 {% if mode is not defined or mode is empty %}
     {% set mode = 'view' %}
 {% endif %}
@@ -5,26 +6,35 @@
 <div class="panel panel-default">
     <div class="panel-body">
         <form class="form-horizontal" role="form">
-            {% if mode == 'view' %}
+            {% if mode in viewMode %}
                 <fieldset disabled>
             {% endif %}
                 {% for field in entity.fields %}
                     {% include  "VirhiUiRestApiDoctrineBundle:fields:field.html.twig"%}
                 {% endfor %}
-            {% if mode == 'view' %}
+
+                {% if mode != 'list' %}
+                    {% for field in entity.embedFields %}
+                        {% include  "VirhiUiRestApiDoctrineBundle:fields:embedField.html.twig"%}
+                    {% endfor %}
+                {% endif %}
+
+            {% if mode in viewMode  %}
                 </fieldset>
             {% endif %}
+
             <div class="form-group text-right">
                 <div class="col-sm-8">
                 </div>
                 <div class="col-sm-4 ">
-                    {% if mode == 'view' %}
+                    {% if mode in viewMode %}
                         {% include  "VirhiUiRestApiDoctrineBundle:fields:block_button.html.twig"%}
                     {% elseif mode == 'edit' %}
                         {% include  "VirhiUiRestApiDoctrineBundle:fields:edit_block_button.html.twig"%}
                     {% endif %}
                 </div>
             </div>
+
         </form>
     </div>
 </div>

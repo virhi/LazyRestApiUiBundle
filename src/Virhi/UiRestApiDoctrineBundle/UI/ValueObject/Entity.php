@@ -24,7 +24,7 @@ class Entity
         $this->name = $name;
         $this->id = $id;
 
-        $this->fields = new \ArrayObject();
+        $this->fields      = new \ArrayObject();
         $this->embedFields = new \ArrayObject();
 
         $this->addFields($fields);

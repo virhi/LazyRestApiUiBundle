@@ -1,0 +1,11 @@
+<div class="form-group">
+    <label class="col-sm-2 control-label" for="{{ field.name }}">{{ field.label }} :</label>
+    <div class="col-sm-10">
+
+        <select multiple name="{{ field.name }}">
+            {% for entity in field.entities %}
+                <option value="{{ entity.id }}">{{ entity.id }}</option>
+            {% endfor %}
+        </select>
+    </div>
+</div>

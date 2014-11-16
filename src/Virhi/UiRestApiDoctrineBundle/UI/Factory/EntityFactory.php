@@ -38,11 +38,19 @@ class EntityFactory
 
         }
 
-        /*
+
         foreach ($rowEntity['embeds'] as $embedName => $embeds) {
+
+            var_dump($embedName);
+            var_dump($embeds);
 
             $embedEntities = array();
 
+            foreach ($embeds as $rawEmbedEntity) {
+                $embedEntities[] = self::build();
+            }
+
+            /*
             foreach ($embeds as $embedFields) {
                 foreach ($embedFields['value'] as $rawEmbedEntity) {
                     $embedEntity = new EmbedEntity($embedFields['identifier'], $embedFields['name'], $rawEmbedEntity['name']);
@@ -51,8 +59,10 @@ class EntityFactory
             }
 
             $embedField = new EmbedField($embedName, $embedName, $embedEntities);
-            $embedFields[] = $embedField;
-        }*/
+            */
+            $embedFields[] = $embedEntities;
+
+        }
 
         $entity = new Entity($objectStructure->getName(), implode('_', $id), $fields, $embedFields);
         return $entity;

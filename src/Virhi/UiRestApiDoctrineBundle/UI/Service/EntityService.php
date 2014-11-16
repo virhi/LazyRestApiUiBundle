@@ -10,7 +10,7 @@ namespace Virhi\UiRestApiDoctrineBundle\UI\Service;
 
 use Virhi\UiRestApiDoctrineBundle\UI\Filter\ListEntityFilter;
 use Virhi\UiRestApiDoctrineBundle\UI\Filter\EntityFilter;
-use Virhi\UiRestApiDoctrineBundle\UI\Factory\EntityFactory;
+use Virhi\UiRestApiDoctrineBundle\UI\Factory\ObjectStructureFactory;
 
 class EntityService 
 {
@@ -36,12 +36,12 @@ class EntityService
      */
     public function getList(ListEntityFilter $filter)
     {
-        $res = $this->httpClient->load('http://local.sf.dev/api/entitys/' . $filter->getEntityName());
+        $res  = $this->httpClient->load('http://local.sf.dev/api/entitys/' . $filter->getEntityName());
         $list = new \ArrayObject();
 
         foreach ($res['_embedded']['entitys'] as $rowEntity) {
             $list->append(
-                EntityFactory::build($this->objectStructureService->getObjectStructure($filter->getEntityName()), $rowEntity)
+                ObjectStructureFactory::build($rowEntity)
             );
         }
 
@@ -55,7 +55,6 @@ class EntityService
     public function getEntity(EntityFilter $filter)
     {
         $res = $this->httpClient->load('http://local.sf.dev/api/entity/' . $filter->getEntityName() . '/' .$filter->getId() );
-        $objStruc = $this->objectStructureService->getObjectStructure($filter->getEntityName());
-        return EntityFactory::build($objStruc, $res);
+        return ObjectStructureFactory::build($res);
     }
 } 

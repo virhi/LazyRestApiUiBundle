@@ -23,19 +23,42 @@ class ObjectStructure
     /**
      * @var \ArrayObject
      */
+    protected $embedFields;
+
+    /**
+     * @var \ArrayObject
+     */
     protected $fields;
+
+    protected $id;
 
     function __construct($name, $primaryKey)
     {
-        $this->fields = new \ArrayObject();
-        $this->name = strtolower($name);
-        $this->label = $name;
-        $this->primaryKey = $primaryKey;
+        $this->fields      = new \ArrayObject();
+        $this->embedFields = new \ArrayObject();
+        $this->name        = strtolower($name);
+
+        $this->label       = $name;
+        $this->primaryKey  = $primaryKey;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->getFieldByName($this->primaryKey[0])->getValue();
     }
 
     public function addFields(Fields $fields)
     {
         $this->fields->offsetSet($fields->getName(), $fields);
+        return $this;
+    }
+
+    public function addEmbedField(EmbedField $fields)
+    {
+        $this->embedFields->offsetSet($fields->getName(), $fields);
         return $this;
     }
 
@@ -78,6 +101,14 @@ class ObjectStructure
     public function getLabel()
     {
         return $this->label;
+    }
+
+    /**
+     * @return \ArrayObject
+     */
+    public function getEmbedFields()
+    {
+        return $this->embedFields;
     }
 
 }
