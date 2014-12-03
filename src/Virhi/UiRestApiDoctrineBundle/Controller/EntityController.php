@@ -11,6 +11,8 @@ namespace Virhi\UiRestApiDoctrineBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Virhi\UiRestApiDoctrineBundle\UI\Filter\ListEntityFilter;
 use Virhi\UiRestApiDoctrineBundle\UI\Filter\EntityFilter;
+use Virhi\UiRestApiDoctrineBundle\UI\Filter\EditEntityFilter;
+use Symfony\Component\HttpFoundation\Request;
 
 class EntityController extends Controller
 {
@@ -35,10 +37,21 @@ class EntityController extends Controller
 
     public function editAction($name, $id)
     {
-        $svc = $this->get('virhi_ui_rest_api_doctrine.service.entity');
+        $svc    = $this->get('virhi_ui_rest_api_doctrine.service.entity');
         $filter = new EntityFilter($name, $id);
         $entity = $svc->getEntity($filter);
 
         return $this->render('VirhiUiRestApiDoctrineBundle:Entity:edit.html.twig', array('entity' => $entity));
+    }
+
+    public function sendAction(Request $request, $name, $id)
+    {
+        $svc = $this->get('virhi_ui_rest_api_doctrine.service.entity');
+
+        $filter = new EditEntityFilter($name, $request->request->all(), $id);
+        $svc->send($filter);
+
+        return $this->redirect($this->generateUrl('virhi_ui_rest_api_doctrine_entity_list', array('name' => $name)));
+
     }
 } 

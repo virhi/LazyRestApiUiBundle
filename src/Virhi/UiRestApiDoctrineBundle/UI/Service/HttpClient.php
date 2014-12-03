@@ -30,4 +30,55 @@ class HttpClient
 
         return $json;
     }
+
+    /**
+     * @param $url
+     * @param $postBody
+     * @return \Guzzle\Http\Message\RequestInterface
+     */
+    public function post($url, $postBody)
+    {
+        $result  = null;
+        $headers = array(
+            'Content-Type' => 'application/json'
+        );
+
+        $options = array();
+        $request = $this->client->post($url, $headers, json_encode($postBody), $options);
+
+        try {
+            $reponse = $this->client->send($request);
+            $result  = $reponse->getStatusCode();
+        } catch (\Exception $e) {
+            $result = 'error';
+        }
+
+        return $result;
+    }
+
+    /**
+     * @param $url
+     * @param $postBody
+     * @return \Guzzle\Http\Message\RequestInterface
+     */
+    public function put($url, $postBody)
+    {
+
+        $result  = null;
+        $headers = array(
+            'Content-Type' => 'application/json'
+        );
+
+        $options = array();
+        $request = $this->client->put($url, $headers, json_encode($postBody), $options);
+
+        try {
+            $reponse = $this->client->send($request);
+            $result  = $reponse->getStatusCode();
+        } catch (\Exception $e) {
+            $result = 'error';
+        }
+
+        return $result;
+    }
 } 

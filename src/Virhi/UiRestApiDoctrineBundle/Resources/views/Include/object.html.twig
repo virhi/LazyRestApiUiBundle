@@ -5,7 +5,11 @@
 
 <div class="panel panel-default">
     <div class="panel-body">
-        <form class="form-horizontal" role="form">
+        {% if mode in viewMode %}
+            <form class="form-horizontal" role="form">
+        {% elseif mode == 'edit' %}
+            <form method="post" class="form-horizontal" action="{{ path('virhi_ui_rest_api_doctrine_entity_post', {'name': entity.name, 'id': entity.id}) }}" role="form">
+        {% endif %}
             {% if mode in viewMode %}
                 <fieldset disabled>
             {% endif %}

@@ -2,7 +2,6 @@ virhi_ui_rest_api_doctrine_homepage:
     path:     /ui
     defaults: { _controller: VirhiUiRestApiDoctrineBundle:Default:index }
 
-
 virhi_ui_rest_api_doctrine_entity_item:
     path:     /ui/entity/{name}/{id}
     defaults: { _controller: VirhiUiRestApiDoctrineBundle:Entity:entity}
@@ -14,4 +13,8 @@ virhi_ui_rest_api_doctrine_entity_edit:
 virhi_ui_rest_api_doctrine_entity_list:
     path:     /ui/entitys/{name}
     defaults: { _controller: VirhiUiRestApiDoctrineBundle:Entity:list}
+
+virhi_ui_rest_api_doctrine_entity_post:
+    path:     /ui/send/{name}/{id}
+    defaults: { _controller: VirhiUiRestApiDoctrineBundle:Entity:send, id: null}
 

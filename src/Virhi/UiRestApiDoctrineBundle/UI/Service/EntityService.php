@@ -10,6 +10,7 @@ namespace Virhi\UiRestApiDoctrineBundle\UI\Service;
 
 use Virhi\UiRestApiDoctrineBundle\UI\Filter\ListEntityFilter;
 use Virhi\UiRestApiDoctrineBundle\UI\Filter\EntityFilter;
+use Virhi\UiRestApiDoctrineBundle\UI\Filter\EditEntityFilter;
 use Virhi\UiRestApiDoctrineBundle\UI\Factory\ObjectStructureFactory;
 
 class EntityService 
@@ -24,7 +25,7 @@ class EntityService
      */
     protected $objectStructureService;
 
-    function __construct($httpClient, ObjectStructureService $objectStructureService)
+    function __construct(HttpClient $httpClient, ObjectStructureService $objectStructureService)
     {
         $this->httpClient = $httpClient;
         $this->objectStructureService = $objectStructureService;
@@ -56,5 +57,30 @@ class EntityService
     {
         $res = $this->httpClient->load('http://local.sf.dev/api/entity/' . $filter->getEntityName() . '/' .$filter->getId() );
         return ObjectStructureFactory::build($res);
+    }
+
+    public function send(EditEntityFilter $filter)
+    {
+        $result = null;
+        if ($filter->getEntityId() !== null) {
+            $result = $this->update($filter);
+        } else {
+            $result = $this->create($filter);
+        }
+        return $result;
+    }
+
+
+    protected function update(EditEntityFilter $filter)
+    {
+        $url = 'http://local.sf.dev/api/update/' . $filter->getEntityName() . '/' . $filter->getEntityId();
+        return $this->httpClient->put($url, $filter->getInputs());
+    }
+
+
+    protected function create(EditEntityFilter $filter)
+    {
+        $url = 'http://local.sf.dev/api/create/' . $filter->getEntityName();
+        return $this->httpClient->post($url, $filter->getInputs());
     }
 } 
