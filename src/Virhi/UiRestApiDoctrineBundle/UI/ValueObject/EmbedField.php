@@ -12,14 +12,16 @@ namespace Virhi\UiRestApiDoctrineBundle\UI\ValueObject;
 class EmbedField 
 {
     protected $name;
+    protected $entityName;
     protected $label;
     protected $entities;
 
-    function __construct($name, $label, $entities)
+    function __construct($name, $label, $entities, $entityName)
     {
         $this->entities = $entities;
         $this->label    = $label;
         $this->name     = $name;
+        $this->entityName = $entityName;
     }
 
 
@@ -46,4 +48,13 @@ class EmbedField
     {
         return $this->name;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getEntityName()
+    {
+        return $this->entityName;
+    }
+
 }

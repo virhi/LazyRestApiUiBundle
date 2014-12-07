@@ -8,7 +8,7 @@ services:
 
     virhi_ui_rest_api_doctrine.guzzle_client:
         class: %guzzle.client.class%
-        arguments: ['http://local.sf.dev/']
+        arguments: [%virhi_ui_rest_api_doctrine.api_url%]
         tags:
             -  { name: guzzle.client }
 
@@ -26,4 +26,7 @@ services:
 
     virhi_ui_rest_api_doctrine.service.entity:
         class: %virhi_ui_rest_api_doctrine.service.entity.class%
-        arguments: [@virhi_ui_rest_api_doctrine.service.loader, @virhi_ui_rest_api_doctrine.service.object_structure]
+        arguments:
+            - @virhi_ui_rest_api_doctrine.service.loader
+            - @virhi_ui_rest_api_doctrine.service.object_structure
+            - %virhi_ui_rest_api_doctrine.api_url%

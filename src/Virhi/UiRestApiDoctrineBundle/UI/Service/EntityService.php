@@ -25,10 +25,13 @@ class EntityService
      */
     protected $objectStructureService;
 
-    function __construct(HttpClient $httpClient, ObjectStructureService $objectStructureService)
+    protected $apiUrl;
+
+    function __construct(HttpClient $httpClient, ObjectStructureService $objectStructureService, $apiUrl)
     {
         $this->httpClient = $httpClient;
         $this->objectStructureService = $objectStructureService;
+        $this->apiUrl = $apiUrl;
     }
 
     /**
@@ -37,7 +40,7 @@ class EntityService
      */
     public function getList(ListEntityFilter $filter)
     {
-        $res  = $this->httpClient->load('http://local.sf.dev/api/entitys/' . $filter->getEntityName());
+        $res  = $this->httpClient->load($this->apiUrl . 'api/entitys/' . $filter->getEntityName());
         $list = new \ArrayObject();
 
         foreach ($res['_embedded']['entitys'] as $rowEntity) {
@@ -55,7 +58,7 @@ class EntityService
      */
     public function getEntity(EntityFilter $filter)
     {
-        $res = $this->httpClient->load('http://local.sf.dev/api/entity/' . $filter->getEntityName() . '/' .$filter->getId() );
+        $res = $this->httpClient->load($this->apiUrl . 'api/entity/' . $filter->getEntityName() . '/' .$filter->getId() );
         return ObjectStructureFactory::build($res);
     }
 
@@ -73,14 +76,14 @@ class EntityService
 
     protected function update(EditEntityFilter $filter)
     {
-        $url = 'http://local.sf.dev/api/update/' . $filter->getEntityName() . '/' . $filter->getEntityId();
+        $url = $this->apiUrl . 'api/update/' . $filter->getEntityName() . '/' . $filter->getEntityId();
         return $this->httpClient->put($url, $filter->getInputs());
     }
 
 
     protected function create(EditEntityFilter $filter)
     {
-        $url = 'http://local.sf.dev/api/create/' . $filter->getEntityName();
+        $url = $this->apiUrl . 'api/create/' . $filter->getEntityName();
         return $this->httpClient->post($url, $filter->getInputs());
     }
 } 

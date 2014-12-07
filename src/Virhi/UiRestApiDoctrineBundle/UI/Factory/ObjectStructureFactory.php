@@ -35,13 +35,16 @@ class ObjectStructureFactory
             $objectStructure->addFields($field);
         }
 
+
         foreach ($rawObjectStructure['embeds'] as $embedFieldName => $embeded) {
+
             foreach ($embeded as $embed) {
+
                 $embedEntities = array();
                 foreach($embed['entities'] as $rawEntity) {
                     $embedEntities[] = self::build($rawEntity);
                 }
-                $embedField = new EmbedField($embedFieldName, $embedFieldName, $embedEntities);
+                $embedField = new EmbedField($embedFieldName, $embedFieldName, $embedEntities, $embed['entityName']);
             }
             $objectStructure->addEmbedField($embedField);
         }

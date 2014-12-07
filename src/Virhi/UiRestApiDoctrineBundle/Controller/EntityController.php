@@ -35,13 +35,46 @@ class EntityController extends Controller
         return $this->render('VirhiUiRestApiDoctrineBundle:Entity:entity.html.twig', array('entity' => $entity));
     }
 
+    public function createAction($name)
+    {
+        $svc    = $this->get('virhi_ui_rest_api_doctrine.service.object_structure');
+        $entity = $svc->getObjectStructure($name);
+
+        $embedEntities = array();
+
+        foreach ($entity->getEmbedFields() as $embed) {
+            $svcList  = $this->get('virhi_ui_rest_api_doctrine.service.entity');
+            $filter = new ListEntityFilter();
+            $filter->setEntityName($embed->getEntityName());
+            $embedEntities[$embed->getName()] = $svcList->getList($filter);
+        }
+
+        return $this->render('VirhiUiRestApiDoctrineBundle:Entity:edit.html.twig', array(
+            'entity'        => $entity,
+            'embedEntities' => $embedEntities
+        ));
+    }
+
     public function editAction($name, $id)
     {
         $svc    = $this->get('virhi_ui_rest_api_doctrine.service.entity');
         $filter = new EntityFilter($name, $id);
         $entity = $svc->getEntity($filter);
 
-        return $this->render('VirhiUiRestApiDoctrineBundle:Entity:edit.html.twig', array('entity' => $entity));
+        $embedEntities = array();
+
+        foreach ($entity->getEmbedFields() as $embed) {
+            $svcList  = $this->get('virhi_ui_rest_api_doctrine.service.entity');
+            $filter = new ListEntityFilter();
+            $filter->setEntityName($embed->getEntityName());
+            $embedEntities[$embed->getName()] = $svcList->getList($filter);
+        }
+
+
+        return $this->render('VirhiUiRestApiDoctrineBundle:Entity:edit.html.twig', array(
+            'entity'        => $entity,
+            'embedEntities' => $embedEntities
+        ));
     }
 
     public function sendAction(Request $request, $name, $id)
