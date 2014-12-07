@@ -1,6 +1,13 @@
 {% extends "VirhiUiRestApiDoctrineBundle::layout.html.twig" %}
 {% block content %}
     {% set mode = 'list' %}
+
+    <div class="row">
+        <div class="col-sm-12 text-right">
+            <a class="btn btn-primary btn-lg btn-block" href="{{ path('virhi_ui_rest_api_doctrine_entity_create', {'name': name}) }}">Create</a>
+        </div>
+    </div>
+
     {% for entity in list %}
         {% include  "VirhiUiRestApiDoctrineBundle:Include:object.html.twig"%}
     {% endfor %}

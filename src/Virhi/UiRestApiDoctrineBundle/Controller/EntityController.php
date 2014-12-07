@@ -23,7 +23,7 @@ class EntityController extends Controller
         $filter->setEntityName($name);
 
         $list = $svc->getList($filter);
-        return $this->render('VirhiUiRestApiDoctrineBundle:Entity:list.html.twig', array('list' => $list));
+        return $this->render('VirhiUiRestApiDoctrineBundle:Entity:list.html.twig', array('list' => $list, 'name' => $name));
     }
 
     public function entityAction($name, $id)
