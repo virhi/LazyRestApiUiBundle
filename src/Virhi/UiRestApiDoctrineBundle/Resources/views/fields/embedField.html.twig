@@ -9,7 +9,7 @@
             {% endfor %}
 
             {% if embedEntities is defined and field.name(embedEntities) is defined %}
-                <select multiple name="{{ field.name }}">
+                <select multiple name="{{ field.name }}[]">
                     {% for entity in attribute(embedEntities, field.name) %}
                         <option value="{{ entity.id }}" {% if entity.id in selectedOption%} selected {% endif %}>{{ entity.id }}  </option>
                     {% endfor %}
