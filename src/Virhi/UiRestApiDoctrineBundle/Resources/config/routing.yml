@@ -22,3 +22,7 @@ virhi_ui_rest_api_doctrine_entity_post:
     path:     /ui/send/{name}/{id}
     defaults: { _controller: VirhiUiRestApiDoctrineBundle:Entity:send, id: null}
 
+virhi_ui_rest_api_doctrine_entity_remove:
+    path:     /ui/remove/{name}/{id}
+    defaults: { _controller: VirhiUiRestApiDoctrineBundle:Entity:remove}
+

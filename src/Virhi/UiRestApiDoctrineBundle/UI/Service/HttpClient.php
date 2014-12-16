@@ -31,6 +31,15 @@ class HttpClient
         return $json;
     }
 
+    public function delete($url)
+    {
+        $request  = $this->client->delete($url);
+        $response = $this->client->send($request);
+        $json     = $response->json();
+
+        return $json;
+    }
+
     /**
      * @param $url
      * @param $postBody

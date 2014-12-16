@@ -16,7 +16,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <a href="{{ path('virhi_ui_rest_api_doctrine_entity_remove', {'name': entity.name, 'id': entity.id}) }}" class="btn btn-primary">Delete</a>
                 </div>
             </div>
         </div>

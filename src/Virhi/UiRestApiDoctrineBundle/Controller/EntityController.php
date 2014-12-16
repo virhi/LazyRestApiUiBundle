@@ -85,6 +85,14 @@ class EntityController extends Controller
         $svc->send($filter);
 
         return $this->redirect($this->generateUrl('virhi_ui_rest_api_doctrine_entity_list', array('name' => $name)));
+    }
 
+    public function removeAction($name, $id)
+    {
+        $svc    = $this->get('virhi_ui_rest_api_doctrine.service.entity');
+        $filter = new EntityFilter($name, $id);
+        $svc->delete($filter);
+
+        return $this->redirect($this->generateUrl('virhi_ui_rest_api_doctrine_entity_list', array('name' => $name)));
     }
 } 

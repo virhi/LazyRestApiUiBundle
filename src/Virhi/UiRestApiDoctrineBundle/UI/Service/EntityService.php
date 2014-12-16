@@ -73,6 +73,11 @@ class EntityService
         return $result;
     }
 
+    public function delete(EntityFilter $filter)
+    {
+        $res = $this->httpClient->delete($this->apiUrl . 'api/remove/' . $filter->getEntityName() . '/' .$filter->getId() );
+    }
+
 
     protected function update(EditEntityFilter $filter)
     {
