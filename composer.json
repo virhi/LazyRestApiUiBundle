@@ -10,15 +10,26 @@
             "role": "Developer"
         }
     ],
+
     "autoload": {
-        "psr-0": {
-            "Virhi\\UiRestApiDoctrineBundle": "src/"
+        "psr-4": {
+            "Virhi\\UiRestApiDoctrineBundle\\": "src/Virhi/UiRestApiDoctrineBundle/"
         }
     },
+
+    "autoload-dev": {
+        "psr-4": { "Virhi\\UiRestApiDoctrineBundle\\Tests\\": "Tests/" }
+    },
+
     "require": {
         "virhi/RestHalBundle": "@dev",
         "virhi/component": "@dev"
     },
+
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*"
+    },
+
     "repositories": [
         {
             "type": "git",
