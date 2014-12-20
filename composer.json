@@ -39,6 +39,10 @@
         {
             "type": "git",
             "url": "https://github.com/virhi/Component.git"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/virhi/adminBundle.git"
         }
     ]
 }
