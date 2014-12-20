@@ -23,7 +23,8 @@
 
     "require": {
         "virhi/RestHalBundle": "@dev",
-        "virhi/component": "@dev"
+        "virhi/component": "@dev",
+        "avanzu/admin-theme-bundle": "~1.1"
     },
 
     "require-dev": {
