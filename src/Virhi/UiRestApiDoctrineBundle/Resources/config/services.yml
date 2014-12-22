@@ -18,7 +18,9 @@ services:
 
     virhi_ui_rest_api_doctrine.service.object_structure:
         class: %virhi_ui_rest_api_doctrine.service.object_structure.class%
-        arguments: [@virhi_ui_rest_api_doctrine.service.loader]
+        arguments:
+            - @virhi_ui_rest_api_doctrine.service.loader
+            - %virhi_ui_rest_api_doctrine.api_url%
 
     virhi_ui_rest_api_doctrine.service.loader:
         class: %virhi_ui_rest_api_doctrine.service.loader.class%

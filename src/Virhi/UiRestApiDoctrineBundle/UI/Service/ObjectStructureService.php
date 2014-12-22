@@ -19,14 +19,17 @@ class ObjectStructureService
      */
     protected $httpClient;
 
-    function __construct($httpClient)
+    protected $apiUrl;
+
+    function __construct($httpClient, $apiUrl)
     {
         $this->httpClient = $httpClient;
+        $this->apiUrl     = $apiUrl;
     }
 
     public function getAllObjectStructure()
     {
-        $res = $this->httpClient->load('http://local.sf.dev/api/objects');
+        $res = $this->httpClient->load( $this->apiUrl.'api/objects');
         $list = new \ArrayObject();
 
         foreach ($res['_embedded']['tables'] as $table) {
@@ -42,7 +45,7 @@ class ObjectStructureService
      */
     public function getObjectStructure($name)
     {
-        $resStructure = $this->httpClient->load('http://local.sf.dev/api/object/' . $name);
+        $resStructure = $this->httpClient->load($this->apiUrl.'api/object/' . $name);
         return ObjectStructureFactory::build($resStructure);
     }
 
