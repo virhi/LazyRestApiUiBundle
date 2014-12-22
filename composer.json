@@ -23,8 +23,7 @@
 
     "require": {
         "virhi/RestHalBundle": "@dev",
-        "virhi/component": "@dev",
-        "virhi/adminBundle": "@dev"
+        "virhi/component": "@dev"
     },
 
     "require-dev": {
@@ -39,10 +38,6 @@
         {
             "type": "git",
             "url": "https://github.com/virhi/Component.git"
-        },
-        {
-            "type": "git",
-            "url": "https://github.com/virhi/adminBundle.git"
         }
     ]
 }
