@@ -70,7 +70,6 @@ class EntityController extends Controller
             $embedEntities[$embed->getName()] = $svcList->getList($filter);
         }
 
-
         return $this->render('VirhiUiRestApiDoctrineBundle:Entity:edit.html.twig', array(
             'entity'        => $entity,
             'embedEntities' => $embedEntities
@@ -94,5 +93,15 @@ class EntityController extends Controller
         $svc->delete($filter);
 
         return $this->redirect($this->generateUrl('virhi_ui_rest_api_doctrine_entity_list', array('name' => $name)));
+    }
+
+    public function dashbordAction()
+    {
+        $svc  = $this->get('virhi_ui_rest_api_doctrine.service.dashbord');
+        $dashbord = $svc->getDashbord();
+
+        return $this->render('VirhiUiRestApiDoctrineBundle:Entity:dashbord.html.twig', array(
+            'dashbord' => $dashbord,
+        ));
     }
 } 

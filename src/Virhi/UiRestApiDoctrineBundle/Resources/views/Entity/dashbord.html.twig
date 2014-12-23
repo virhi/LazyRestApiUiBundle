@@ -1,0 +1,32 @@
+{% extends "VirhiAdminBundle:Admin:layout.html.twig" %}
+
+{% block page_title %}
+    Dashbord
+{% endblock %}
+
+{% block content %}
+    {% for item in dashbord.items %}
+        <div class="box box-primary">
+            <div class="box-header">
+                <h3 class="box-title">{{ item.objectStructure.label }}</h3>
+            </div><!-- /.box-header -->
+            <div class="box-body">
+                <table class="table table-bordered">
+                    <tr>
+                        {% for field in item.objectStructure.fields %}
+                            <th>{{ field.label }}</th>
+                        {% endfor %}
+                    </tr>
+
+                    {% for object in item.objects %}
+                        <tr>
+                            {% for field in object.fields %}
+                                <td>{{ field.value }}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
