@@ -1,28 +1,23 @@
 <div class="form-group">
-    <label class="col-sm-2 control-label" for="{{ field.name }}">{{ field.label }} :</label>
-    <div class="col-sm-10">
+    <label class="control-label" for="{{ field.name }}">{{ field.label }} :</label>
+    {% if mode == 'edit' %}
+        {% set selectedOption = [] %}
+        {% for entity in field.entities %}
+            {% set selectedOption = selectedOption|merge([entity.id]) %}
+        {% endfor %}
 
-        {% if mode == 'edit' %}
-            {% set selectedOption = [] %}
-            {% for entity in field.entities %}
-                {% set selectedOption = selectedOption|merge([entity.id]) %}
-            {% endfor %}
-
-            {% if embedEntities is defined and field.name(embedEntities) is defined %}
-                <select multiple name="{{ field.name }}[]">
-                    {% for entity in attribute(embedEntities, field.name) %}
-                        <option value="{{ entity.id }}" {% if entity.id in selectedOption%} selected {% endif %}>{{ entity.id }}  </option>
-                    {% endfor %}
-                </select>
-            {% endif %}
-        {% else %}
-            <select multiple name="{{ field.name }}">
-                {% for entity in field.entities %}
-                    <option value="{{ entity.id }}">{{ entity.id }}</option>
+        {% if embedEntities is defined and field.name(embedEntities) is defined %}
+            <select class="form-control" multiple name="{{ field.name }}[]">
+                {% for entity in attribute(embedEntities, field.name) %}
+                    <option value="{{ entity.id }}" {% if entity.id in selectedOption%} selected {% endif %}>{{ entity.id }}  </option>
                 {% endfor %}
             </select>
         {% endif %}
-    </div>
+    {% else %}
+        <select multiple name="{{ field.name }}" class="form-control">
+            {% for entity in field.entities %}
+                <option value="{{ entity.id }}">{{ entity.id }}</option>
+            {% endfor %}
+        </select>
+    {% endif %}
 </div>
-
-

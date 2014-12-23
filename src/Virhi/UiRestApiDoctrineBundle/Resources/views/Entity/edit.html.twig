@@ -1,4 +1,9 @@
-{% extends "VirhiUiRestApiDoctrineBundle::layout.html.twig" %}
+{% extends "VirhiAdminBundle:Admin:layout.html.twig" %}
+
+{% block page_title %}
+    {{ entity.name }} <small>edit page</small>
+{% endblock %}
+
 {% block content %}
     {% set mode = 'edit' %}
     {% include  "VirhiUiRestApiDoctrineBundle:Include:object.html.twig"%}

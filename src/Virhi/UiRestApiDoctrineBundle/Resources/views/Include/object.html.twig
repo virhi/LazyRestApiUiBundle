@@ -3,42 +3,39 @@
     {% set mode = 'view' %}
 {% endif %}
 
-<div class="panel panel-default">
-    <div class="panel-body">
+<div class="box box-primary">
+    <div class="box-body">
         {% if mode in viewMode %}
-            <form class="form-horizontal" role="form">
+        <form role="form">
         {% elseif mode == 'edit' %}
-            <form method="post" class="form-horizontal" action="{{ path('virhi_ui_rest_api_doctrine_entity_post', {'name': entity.name, 'id': entity.id}) }}" role="form">
+        <form method="post" action="{{ path('virhi_ui_rest_api_doctrine_entity_post', {'name': entity.name, 'id': entity.id}) }}" role="form">
         {% endif %}
+
             {% if mode in viewMode %}
                 <fieldset disabled>
             {% endif %}
-                {% for field in entity.fields %}
-                    {% include  "VirhiUiRestApiDoctrineBundle:fields:field.html.twig"%}
-                {% endfor %}
 
-                {% if mode != 'list' %}
-                    {% for field in entity.embedFields %}
-                        {% include  "VirhiUiRestApiDoctrineBundle:fields:embedField.html.twig"%}
-                    {% endfor %}
-                {% endif %}
+            {% for field in entity.fields %}
+                {% include  "VirhiUiRestApiDoctrineBundle:fields:field.html.twig"%}
+            {% endfor %}
+
+            {% if mode != 'list' %}
+                {% for field in entity.embedFields %}
+                    {% include  "VirhiUiRestApiDoctrineBundle:fields:embedField.html.twig"%}
+                {% endfor %}
+            {% endif %}
 
             {% if mode in viewMode  %}
                 </fieldset>
             {% endif %}
 
             <div class="form-group text-right">
-                <div class="col-sm-8">
-                </div>
-                <div class="col-sm-4">
-                    {% if mode in viewMode %}
-                        {% include  "VirhiUiRestApiDoctrineBundle:fields:block_button.html.twig"%}
-                    {% elseif mode == 'edit' %}
-                        {% include  "VirhiUiRestApiDoctrineBundle:fields:edit_block_button.html.twig"%}
-                    {% endif %}
-                </div>
+                {% if mode in viewMode %}
+                    {% include  "VirhiUiRestApiDoctrineBundle:fields:block_button.html.twig"%}
+                {% elseif mode == 'edit' %}
+                    {% include  "VirhiUiRestApiDoctrineBundle:fields:edit_block_button.html.twig"%}
+                {% endif %}
             </div>
-
         </form>
     </div>
 </div>
