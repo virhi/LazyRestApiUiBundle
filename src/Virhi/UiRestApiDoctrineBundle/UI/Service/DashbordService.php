@@ -39,6 +39,7 @@ class DashbordService
 
             $filter = new ListEntityFilter();
             $filter->setEntityName($objectStructure->getName());
+            $filter->setLimit('0:5');
 
             $dashbordItem = new DashbordItem($objectStructure, $this->entityService->getList($filter));
             $dashbord->addItem($dashbordItem);

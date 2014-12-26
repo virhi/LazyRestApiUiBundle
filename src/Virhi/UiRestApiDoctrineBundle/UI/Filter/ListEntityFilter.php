@@ -13,6 +13,24 @@ class ListEntityFilter
 {
     protected $entityName;
 
+    protected $limit;
+
+    /**
+     * @return mixed
+     */
+    public function getLimit()
+    {
+        return $this->limit;
+    }
+
+    /**
+     * @param mixed $limit
+     */
+    public function setLimit($limit)
+    {
+        $this->limit = $limit;
+    }
+
     /**
      * @param mixed $entityName
      */

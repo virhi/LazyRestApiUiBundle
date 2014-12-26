@@ -40,7 +40,13 @@ class EntityService
      */
     public function getList(ListEntityFilter $filter)
     {
-        $res  = $this->httpClient->load($this->apiUrl . 'api/entitys/' . $filter->getEntityName());
+        $uri  = $this->apiUrl . 'api/entitys/' . $filter->getEntityName();
+
+        if ($filter->getLimit() !== null) {
+            $uri = $uri . '/'.$filter->getLimit();
+        }
+
+        $res  = $this->httpClient->load($uri);
         $list = new \ArrayObject();
 
         foreach ($res['_embedded']['entitys'] as $rowEntity) {
