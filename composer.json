@@ -23,7 +23,8 @@
 
     "require": {
         "virhi/RestHalBundle": "@dev",
-        "virhi/component": "@dev"
+        "virhi/component": "@dev",
+        "virhi/adminBundle": "0.1.*"
     },
 
     "require-dev": {
