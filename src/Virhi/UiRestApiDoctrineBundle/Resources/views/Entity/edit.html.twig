@@ -4,6 +4,20 @@
     {{ entity.name }} <small>edit page</small>
 {% endblock %}
 
+{% block page_breadcrumb %}
+    <li>
+        <a href="{{ path('virhi_ui_rest_api_doctrine_homepage') }}">
+            <i class="fa fa-dashboard"></i>Dashbord
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('virhi_ui_rest_api_doctrine_entity_list' , {'name': entity.name}) }}"> List {{ entity.name }}</a>
+    </li>
+    <li>
+        Edit {{ entity.name }}
+    </li>
+{% endblock %}
+
 {% block content %}
     {% set mode = 'edit' %}
     {% include  "VirhiUiRestApiDoctrineBundle:Include:object.html.twig"%}
