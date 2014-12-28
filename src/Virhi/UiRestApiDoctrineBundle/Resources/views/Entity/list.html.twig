@@ -4,6 +4,17 @@
     {{ name }} <small> list page </small>
 {% endblock %}
 
+{% block page_breadcrumb %}
+    <li>
+        <a href="{{ path('virhi_ui_rest_api_doctrine_homepage') }}">
+            <i class="fa fa-dashboard"></i>Dashbord
+        </a>
+    </li>
+    <li>
+        List {{ name }}
+    </li>
+{% endblock %}
+
 {% block content %}
     {% set mode = 'list' %}
     <div class="row">
