@@ -1,5 +1,5 @@
 <div class="btn-toolbar" role="toolbar">
-    <a href="{{ path('virhi_ui_rest_api_doctrine_entity_item', {'name': entity.name, 'id': entity.id}) }}" class="btn btn-default"> <span class="glyphicon glyphicon-fullscreen"></span> More</a>
+    <a href="{{ path('virhi_ui_rest_api_doctrine_entity_item', {'name': entity.name, 'id': entity.id}) }}" class="btn btn-default"> <span class="glyphicon glyphicon-fullscreen"></span> Show entity</a>
     <a href="{{ path('virhi_ui_rest_api_doctrine_entity_edit', {'name': entity.name, 'id': entity.id}) }}" class="btn btn-primary"> <span class="glyphicon glyphicon-edit"></span> Edit</a>
     <button type="button" data-toggle="modal" data-target="{{ ['#modal', entity.id] | join('_') }}" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> Delete</button>
 

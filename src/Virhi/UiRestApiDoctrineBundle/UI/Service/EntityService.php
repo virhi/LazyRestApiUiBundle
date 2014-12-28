@@ -49,10 +49,13 @@ class EntityService
         $res  = $this->httpClient->load($uri);
         $list = new \ArrayObject();
 
-        foreach ($res['_embedded']['entitys'] as $rowEntity) {
-            $list->append(
-                ObjectStructureFactory::build($rowEntity)
-            );
+
+        if ( array_key_exists('_embedded', $res)) {
+            foreach ($res['_embedded']['entitys'] as $rowEntity) {
+                $list->append(
+                    ObjectStructureFactory::build($rowEntity)
+                );
+            }
         }
 
         return $list;
