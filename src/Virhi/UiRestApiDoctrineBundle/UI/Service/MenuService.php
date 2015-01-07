@@ -6,9 +6,9 @@
  * Time: 00:23
  */
 
-namespace Virhi\UiRestApiDoctrineBundle\UI\Service;
+namespace Virhi\LazyRestApiUiBundle\UI\Service;
 
-use Virhi\UiRestApiDoctrineBundle\UI\ValueObject;
+use Virhi\LazyRestApiUiBundle\UI\ValueObject;
 
 class MenuService 
 {

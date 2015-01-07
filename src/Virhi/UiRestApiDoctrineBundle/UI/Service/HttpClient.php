@@ -6,7 +6,7 @@
  * Time: 16:11
  */
 
-namespace Virhi\UiRestApiDoctrineBundle\UI\Service;
+namespace Virhi\LazyRestApiUiBundle\UI\Service;
 
 use Guzzle\Service\Client;
 

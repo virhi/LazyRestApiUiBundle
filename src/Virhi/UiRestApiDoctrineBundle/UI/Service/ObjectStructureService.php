@@ -6,11 +6,11 @@
  * Time: 00:36
  */
 
-namespace Virhi\UiRestApiDoctrineBundle\UI\Service;
+namespace Virhi\LazyRestApiUiBundle\UI\Service;
 
-use Virhi\UiRestApiDoctrineBundle\UI\Factory\ObjectStructureFactory;
-use Virhi\UiRestApiDoctrineBundle\UI\ValueObject\ObjectStructure;
-use Virhi\UiRestApiDoctrineBundle\UI\ValueObject\Fields;
+use Virhi\LazyRestApiUiBundle\UI\Factory\ObjectStructureFactory;
+use Virhi\LazyRestApiUiBundle\UI\ValueObject\ObjectStructure;
+use Virhi\LazyRestApiUiBundle\UI\ValueObject\Fields;
 
 class ObjectStructureService 
 {

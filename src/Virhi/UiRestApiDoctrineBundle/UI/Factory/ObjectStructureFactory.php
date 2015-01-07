@@ -6,11 +6,11 @@
  * Time: 09:00
  */
 
-namespace Virhi\UiRestApiDoctrineBundle\UI\Factory;
+namespace Virhi\LazyRestApiUiBundle\UI\Factory;
 
-use Virhi\UiRestApiDoctrineBundle\UI\ValueObject\EmbedField;
-use Virhi\UiRestApiDoctrineBundle\UI\ValueObject\ObjectStructure;
-use Virhi\UiRestApiDoctrineBundle\UI\ValueObject\Fields;
+use Virhi\LazyRestApiUiBundle\UI\ValueObject\EmbedField;
+use Virhi\LazyRestApiUiBundle\UI\ValueObject\ObjectStructure;
+use Virhi\LazyRestApiUiBundle\UI\ValueObject\Fields;
 
 class ObjectStructureFactory 
 {

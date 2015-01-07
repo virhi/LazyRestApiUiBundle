@@ -1,28 +1,28 @@
 virhi_ui_rest_api_doctrine_homepage:
     path:     /ui
-    defaults: { _controller: VirhiUiRestApiDoctrineBundle:Entity:dashbord }
+    defaults: { _controller: VirhiLazyRestApiUiBundle:Entity:dashbord }
 
 virhi_ui_rest_api_doctrine_entity_item:
     path:     /ui/entity/{name}/{id}
-    defaults: { _controller: VirhiUiRestApiDoctrineBundle:Entity:entity}
+    defaults: { _controller: VirhiLazyRestApiUiBundle:Entity:entity}
 
 virhi_ui_rest_api_doctrine_entity_create:
     path:     /ui/create/{name}
-    defaults: { _controller: VirhiUiRestApiDoctrineBundle:Entity:create}
+    defaults: { _controller: VirhiLazyRestApiUiBundle:Entity:create}
 
 virhi_ui_rest_api_doctrine_entity_edit:
     path:     /ui/edit/{name}/{id}
-    defaults: { _controller: VirhiUiRestApiDoctrineBundle:Entity:edit}
+    defaults: { _controller: VirhiLazyRestApiUiBundle:Entity:edit}
 
 virhi_ui_rest_api_doctrine_entity_list:
     path:     /ui/entitys/{name}
-    defaults: { _controller: VirhiUiRestApiDoctrineBundle:Entity:list}
+    defaults: { _controller: VirhiLazyRestApiUiBundle:Entity:list}
 
 virhi_ui_rest_api_doctrine_entity_post:
     path:     /ui/send/{name}/{id}
-    defaults: { _controller: VirhiUiRestApiDoctrineBundle:Entity:send, id: null}
+    defaults: { _controller: VirhiLazyRestApiUiBundle:Entity:send, id: null}
 
 virhi_ui_rest_api_doctrine_entity_remove:
     path:     /ui/remove/{name}/{id}
-    defaults: { _controller: VirhiUiRestApiDoctrineBundle:Entity:remove}
+    defaults: { _controller: VirhiLazyRestApiUiBundle:Entity:remove}
 

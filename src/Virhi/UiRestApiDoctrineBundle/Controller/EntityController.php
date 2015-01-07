@@ -6,12 +6,12 @@
  * Time: 17:50
  */
 
-namespace Virhi\UiRestApiDoctrineBundle\Controller;
+namespace Virhi\LazyRestApiUiBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Virhi\UiRestApiDoctrineBundle\UI\Filter\ListEntityFilter;
-use Virhi\UiRestApiDoctrineBundle\UI\Filter\EntityFilter;
-use Virhi\UiRestApiDoctrineBundle\UI\Filter\EditEntityFilter;
+use Virhi\LazyRestApiUiBundle\UI\Filter\ListEntityFilter;
+use Virhi\LazyRestApiUiBundle\UI\Filter\EntityFilter;
+use Virhi\LazyRestApiUiBundle\UI\Filter\EditEntityFilter;
 use Symfony\Component\HttpFoundation\Request;
 
 class EntityController extends Controller
@@ -23,7 +23,7 @@ class EntityController extends Controller
         $filter->setEntityName($name);
 
         $list = $svc->getList($filter);
-        return $this->render('VirhiUiRestApiDoctrineBundle:Entity:list.html.twig', array('list' => $list, 'name' => $name));
+        return $this->render('VirhiLazyRestApiUiBundle:Entity:list.html.twig', array('list' => $list, 'name' => $name));
     }
 
     public function entityAction($name, $id)
@@ -32,7 +32,7 @@ class EntityController extends Controller
         $filter = new EntityFilter($name, $id);
         $entity = $svc->getEntity($filter);
 
-        return $this->render('VirhiUiRestApiDoctrineBundle:Entity:entity.html.twig', array('entity' => $entity));
+        return $this->render('VirhiLazyRestApiUiBundle:Entity:entity.html.twig', array('entity' => $entity));
     }
 
     public function createAction($name)
@@ -49,7 +49,7 @@ class EntityController extends Controller
             $embedEntities[$embed->getName()] = $svcList->getList($filter);
         }
 
-        return $this->render('VirhiUiRestApiDoctrineBundle:Entity:edit.html.twig', array(
+        return $this->render('VirhiLazyRestApiUiBundle:Entity:edit.html.twig', array(
             'entity'        => $entity,
             'embedEntities' => $embedEntities
         ));
@@ -70,7 +70,7 @@ class EntityController extends Controller
             $embedEntities[$embed->getName()] = $svcList->getList($filter);
         }
 
-        return $this->render('VirhiUiRestApiDoctrineBundle:Entity:edit.html.twig', array(
+        return $this->render('VirhiLazyRestApiUiBundle:Entity:edit.html.twig', array(
             'entity'        => $entity,
             'embedEntities' => $embedEntities
         ));
@@ -100,7 +100,7 @@ class EntityController extends Controller
         $svc  = $this->get('virhi_ui_rest_api_doctrine.service.dashbord');
         $dashbord = $svc->getDashbord();
 
-        return $this->render('VirhiUiRestApiDoctrineBundle:Entity:dashbord.html.twig', array(
+        return $this->render('VirhiLazyRestApiUiBundle:Entity:dashbord.html.twig', array(
             'dashbord' => $dashbord,
         ));
     }

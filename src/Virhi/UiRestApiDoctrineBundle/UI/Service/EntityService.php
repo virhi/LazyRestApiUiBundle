@@ -6,12 +6,12 @@
  * Time: 18:17
  */
 
-namespace Virhi\UiRestApiDoctrineBundle\UI\Service;
+namespace Virhi\LazyRestApiUiBundle\UI\Service;
 
-use Virhi\UiRestApiDoctrineBundle\UI\Filter\ListEntityFilter;
-use Virhi\UiRestApiDoctrineBundle\UI\Filter\EntityFilter;
-use Virhi\UiRestApiDoctrineBundle\UI\Filter\EditEntityFilter;
-use Virhi\UiRestApiDoctrineBundle\UI\Factory\ObjectStructureFactory;
+use Virhi\LazyRestApiUiBundle\UI\Filter\ListEntityFilter;
+use Virhi\LazyRestApiUiBundle\UI\Filter\EntityFilter;
+use Virhi\LazyRestApiUiBundle\UI\Filter\EditEntityFilter;
+use Virhi\LazyRestApiUiBundle\UI\Factory\ObjectStructureFactory;
 
 class EntityService 
 {
@@ -63,7 +63,7 @@ class EntityService
 
     /**
      * @param EntityFilter $filter
-     * @return \Virhi\UiRestApiDoctrineBundle\UI\ValueObject\Entity
+     * @return \Virhi\LazyRestApiUiBundle\UI\ValueObject\Entity
      */
     public function getEntity(EntityFilter $filter)
     {

@@ -1,5 +1,5 @@
 {
-    "name": "virhi/ui-rest-api_doctrine-bundle",
+    "name": "virhi/lazy-rest-api-ui-bundle",
     "description": "generate a UI on top of Rest Hal APi",
     "type": "symfony-bundle",
     "license": "MIT",
@@ -13,12 +13,12 @@
 
     "autoload": {
         "psr-4": {
-            "Virhi\\UiRestApiDoctrineBundle\\": "src/Virhi/UiRestApiDoctrineBundle/"
+            "Virhi\\LazyRestApiUiBundle\\": "src/Virhi/LazyRestApiUiBundle/"
         }
     },
 
     "autoload-dev": {
-        "psr-4": { "Virhi\\UiRestApiDoctrineBundle\\Tests\\": "Tests/" }
+        "psr-4": { "Virhi\\LazyRestApiUiBundle\\Tests\\": "Tests/" }
     },
 
     "require": {

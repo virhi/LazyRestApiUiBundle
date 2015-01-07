@@ -6,7 +6,7 @@
  * Time: 00:00
  */
 
-namespace Virhi\UiRestApiDoctrineBundle\UI\ValueObject;
+namespace Virhi\LazyRestApiUiBundle\UI\ValueObject;
 
 class Menu 
 {

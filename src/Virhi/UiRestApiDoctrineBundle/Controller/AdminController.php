@@ -6,7 +6,7 @@
  * Time: 14:24
  */
 
-namespace Virhi\UiRestApiDoctrineBundle\Controller;
+namespace Virhi\LazyRestApiUiBundle\Controller;
 
 use Virhi\AdminBundle\Controller\AdminController as BaseAdminController;
 
@@ -16,6 +16,6 @@ class AdminController extends BaseAdminController
     {
         $svc  = $this->get('virhi_ui_rest_api_doctrine.service.menu');
         $menu = $svc->getMenu();
-        return $this->render('VirhiUiRestApiDoctrineBundle:Menu:left_menu.html.twig', array('menu' => $menu));
+        return $this->render('VirhiLazyRestApiUiBundle:Menu:left_menu.html.twig', array('menu' => $menu));
     }
 } 

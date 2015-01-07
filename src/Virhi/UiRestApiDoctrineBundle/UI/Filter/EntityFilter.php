@@ -6,7 +6,7 @@
  * Time: 11:54
  */
 
-namespace Virhi\UiRestApiDoctrineBundle\UI\Filter;
+namespace Virhi\LazyRestApiUiBundle\UI\Filter;
 
 
 class EntityFilter 

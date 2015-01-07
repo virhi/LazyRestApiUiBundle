@@ -6,7 +6,7 @@
  * Time: 00:51
  */
 
-namespace Virhi\UiRestApiDoctrineBundle\UI\ValueObject;
+namespace Virhi\LazyRestApiUiBundle\UI\ValueObject;
 
 
 class Fields 

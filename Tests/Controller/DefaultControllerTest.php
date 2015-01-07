@@ -1,6 +1,6 @@
 <?php
 
-namespace Virhi\UiRestApiDoctrineBundle\Tests\Controller;
+namespace Virhi\LazyRestApiUiBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 

@@ -1,10 +1,10 @@
 <?php
 
-namespace Virhi\UiRestApiDoctrineBundle;
+namespace Virhi\LazyRestApiUiBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class VirhiUiRestApiDoctrineBundle extends Bundle
+class VirhiLazyRestApiUiBundle extends Bundle
 {
     public function getParent()
     {

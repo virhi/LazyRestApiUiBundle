@@ -1,9 +1,9 @@
 parameters:
-    virhi_ui_rest_api_doctrine.service.loader.class: Virhi\UiRestApiDoctrineBundle\UI\Service\HttpClient
-    virhi_ui_rest_api_doctrine.service.menu.class: Virhi\UiRestApiDoctrineBundle\UI\Service\MenuService
-    virhi_ui_rest_api_doctrine.service.object_structure.class: Virhi\UiRestApiDoctrineBundle\UI\Service\ObjectStructureService
-    virhi_ui_rest_api_doctrine.service.entity.class: Virhi\UiRestApiDoctrineBundle\UI\Service\EntityService
-    virhi_ui_rest_api_doctrine.service.dashbord.class: Virhi\UiRestApiDoctrineBundle\UI\Service\DashbordService
+    virhi_ui_rest_api_doctrine.service.loader.class: Virhi\LazyRestApiBundle\UI\Service\HttpClient
+    virhi_ui_rest_api_doctrine.service.menu.class: Virhi\LazyRestApiBundle\UI\Service\MenuService
+    virhi_ui_rest_api_doctrine.service.object_structure.class: Virhi\LazyRestApiBundle\UI\Service\ObjectStructureService
+    virhi_ui_rest_api_doctrine.service.entity.class: Virhi\LazyRestApiBundle\UI\Service\EntityService
+    virhi_ui_rest_api_doctrine.service.dashbord.class: Virhi\LazyRestApiBundle\UI\Service\DashbordService
 
 services:
 

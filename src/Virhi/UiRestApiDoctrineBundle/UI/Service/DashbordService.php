@@ -6,11 +6,11 @@
  * Time: 19:50
  */
 
-namespace Virhi\UiRestApiDoctrineBundle\UI\Service;
+namespace Virhi\LazyRestApiUiBundle\UI\Service;
 
-use Virhi\UiRestApiDoctrineBundle\UI\Filter\ListEntityFilter;
-use Virhi\UiRestApiDoctrineBundle\UI\ValueObject\Dashbord;
-use Virhi\UiRestApiDoctrineBundle\UI\ValueObject\DashbordItem;
+use Virhi\LazyRestApiUiBundle\UI\Filter\ListEntityFilter;
+use Virhi\LazyRestApiUiBundle\UI\ValueObject\Dashbord;
+use Virhi\LazyRestApiUiBundle\UI\ValueObject\DashbordItem;
 
 class DashbordService 
 {

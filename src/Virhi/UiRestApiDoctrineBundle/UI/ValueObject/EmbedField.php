@@ -6,7 +6,7 @@
  * Time: 19:01
  */
 
-namespace Virhi\UiRestApiDoctrineBundle\UI\ValueObject;
+namespace Virhi\LazyRestApiUiBundle\UI\ValueObject;
 
 
 class EmbedField 

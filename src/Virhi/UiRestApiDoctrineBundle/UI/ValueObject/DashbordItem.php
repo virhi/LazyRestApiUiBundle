@@ -6,7 +6,7 @@
  * Time: 19:46
  */
 
-namespace Virhi\UiRestApiDoctrineBundle\UI\ValueObject;
+namespace Virhi\LazyRestApiUiBundle\UI\ValueObject;
 
 use \ArrayObject;
 
