@@ -18,7 +18,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('virhi_ui_rest_api_doctrine');
+        $rootNode = $treeBuilder->root('virhi_lazy_rest_api_ui');
 
         $rootNode->children()
             ->scalarNode('api_url')
