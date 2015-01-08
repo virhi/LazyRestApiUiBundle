@@ -35,10 +35,6 @@
         {
             "type": "git",
             "url": "https://github.com/virhi/RestHalBundle.git"
-        },
-        {
-            "type": "git",
-            "url": "https://github.com/virhi/Component.git"
         }
     ]
 }
