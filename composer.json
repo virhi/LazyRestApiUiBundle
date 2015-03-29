@@ -24,7 +24,8 @@
     "require": {
         "virhi/RestHalBundle": "@dev",
         "virhi/component": "@dev",
-        "virhi/admin-bundle": "0.1.*"
+        "virhi/admin-bundle": "dev-master",
+	"virhi/lazy-mock-api-bundle": "dev-master"
     },
 
     "require-dev": {
